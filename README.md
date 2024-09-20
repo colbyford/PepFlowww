@@ -27,7 +27,7 @@ pip install joblib lmdb easydict
 
 ```
 
-### Clone Repo### Train
+### Clone Repo
 
 ```bash
 git clone https://github.com/Ced3-han/PepFlowww.git
@@ -79,6 +79,20 @@ Our evaluation involves many third-party packages, and we include some useful ev
 ### Train
 
 You can also ```train.py``` on single GPU training and ```train_ddp.py``` for multiple GPT training.
+
+
+## Docker
+To run this project in a Docker container, you can use the following commands:
+
+```bash
+## Build the image
+docker build -t pepflowww .
+
+## Run the container (with GPUs and mounting the current directory)
+docker run -it --gpus all -v .:/mnt --name pepflowww pepflowww
+```
+
+Note: You will still need to download the checkpoints and data as described in the installation guide. Then, update the Python commands to point to the desired local location of your files (e.g., /mnt/checkpoints and /mnt/outputs) once in the container.
 
 
 ## Future Work
